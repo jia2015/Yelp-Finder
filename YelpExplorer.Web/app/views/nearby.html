@@ -1,0 +1,81 @@
+﻿<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-md-offset-2">
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            <div class="col-md-5 col-xs-4 col-sm-5">
+                <input type="text" ng-model="vm.location" class="form-control" placeholder="find places In - e.g. New York" />
+            </div>
+            <div class="col-md-5 col-xs-4 col-sm-5">
+                <input type="text" ng-model="vm.term" class="form-control" placeholder="Search term - e.g. food, restaurants" />
+            </div>
+            <div class="col-md-2 col-xs-4 col-sm-2">
+                <button class="btn btn-primary pull-right" ng-click="vm.doSearch()"><span class="glyphicon glyphicon-search"></span>Find</button>
+            </div>
+        </div>
+
+        <div class="well well-sm" ng-show="vm.totalRecordsCount == 0">
+            <h5>No Places found Near by ({{vm.location}})</h5>
+        </div>
+
+        <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+
+        <div ng-show="vm.totalRecordsCount > 0">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" ng-model="vm.filterValue" class="form-control" placeholder="Filter Places by PlaceName or Category" />
+                </div>
+            </div>
+
+            <ul class="list-group" ng-repeat="item in vm.filteredPlaces">
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <a href="" ng-click="vm.showDetails(item.name, item.display_phone, item.url)">
+                                <p id="placeName"><strong>{{item.name}}</strong></p>
+                            </a>
+                        </div>
+                        <div class="col-xs-2 col-md-3">
+                            <img ng-src="{{item.rating_img_url}}" title="{{item.categories[0]}}" />
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <span>Reviews: {{item.review_count}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            &nbsp;
+                        </div>
+                        <div class="col-xs-6 col-md-8">
+                            <p class="text-warning">
+                                <small>
+                                    {{item.location.display_address[0]}},
+                                    {{item.location.display_address[1]}},
+                                    {{item.location.display_address[2]}} <span class="badge">{{item.categories[0][0]}}</span>
+                                </small>
+                            </p>
+                            <p>{{item.snippet_text}}</p>
+                            <hr class="seperator" />
+                            <a href="" ng-click="vm.bookmarkPlace(item)"><span class="glyphicon glyphicon-bookmark"></span>Bookmark Place</a>
+                        </div>
+                        <div class="col-xs-4 col-md-3">
+                            <a href=""><img ng-src="{{item.image_url}}" class="img-thumbnail" /></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 col-md-offset-2 text-center">
+                <div ng-show="vm.totalRecordsCount > 0">
+                    <div>
+                        <ul uib-pagination ng-change="vm.pageChanged(vm.currentPage)" total-items="vm.totalRecordsCount"
+                            ng-model="vm.currentPage" max-size="5" items-per-page="vm.pageSize"
+                            class="pagination" boundary-link-numbers="true"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

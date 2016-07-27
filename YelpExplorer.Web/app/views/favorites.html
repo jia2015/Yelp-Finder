@@ -1,0 +1,48 @@
+﻿<div>
+    <div ng-show="vm.myPlaces || vm.myPlaces.length > 0">
+        <div>
+            <h3 class="text-info">Bookmarked places for: <span class="text-warning">{{vm.myPlaces[0].userName}}</span></h3>
+        </div>
+    </div>
+    <table class="table table-striped table-hover table-condensed table-responsive">
+        <thead>
+            <tr>
+                <th>Place Name</th>
+                <th>Category</th>
+                <th>Address</th>
+                <th>Rating</th>
+                <th>Time Created</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-hide="vm.myPlaces.length > 0">
+                <td colspan="4">
+                    <div class="text-center text-danger"><strong>No bookmarked places found, Try Bookmark Some Places!</strong></div>
+                </td>
+            </tr>
+            <tr ng-repeat="place in vm.myPlaces">
+                <td>
+                    <a target="_blank" href="http://www.yelp.com/biz/{{place.placeID}}">{{ place.placeName }}</a>
+                </td>
+                <td>
+                    {{ place.category }}
+                </td>
+                <td>
+                    {{ place.address }}
+                </td>
+                <td>
+                    <span class="badge">{{ place.rating | number:1 }}</span>
+                </td>
+                <td>
+                    {{ place.timeCreated | date:'medium' }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-md-offset-2 col-md-8 col-md-offset-2 text-center" ng-show="vm.totalRecordsCount > 0">
+
+        <ul uib-pagination ng-change="vm.pageChanged(vm.currentPage)" total-items="vm.totalRecordsCount"
+            ng-model="vm.currentPage" max-size="5" items-per-page="vm.pageSize"
+            class="pagination" boundary-link-numbers="true"></ul>
+    </div>
+</div>

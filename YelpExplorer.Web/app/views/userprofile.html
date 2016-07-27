@@ -1,0 +1,34 @@
+﻿<div class="modal-header">
+    <a href="" class="close" ng-click="vm.close()">&times;</a>
+    <h4 class="text-primary">Please enter your name:</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+
+            <form class="form-horizontal" name="userProfileForm" novalidate>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-user"></span>
+                            </span>
+                            <input type="text" name="userName" maxlength="20" class="form-control" ng-unique="" ng-model="vm.user.userName" placeholder="Your Username" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-9 text-warning">
+                        <div ng-show="userProfileForm.userName.$dirty && userProfileForm.userName.$error.unique">
+                            <p>Username already exists. Click <a class="text-success" href="" ng-click="vm.saveUser()">here</a> if you want to use it. Your bookmarks will be saved under this user!</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <button type="button" ng-click="vm.saveUser()" class="btn btn-success pull-right" ng-disabled="userProfileForm.$invalid || !userProfileForm.$dirty">Save</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
