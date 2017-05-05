@@ -26,6 +26,8 @@
                 <ul class="nav navbar-nav">
                     <li ng-class="{'active': vm.isActive('/home')}"><a href="#/home">Nearby</a></li>
                     <li ng-class="{'active': vm.isActive('/favorites')}"><a href="#/favorites">My Favorites</a></li>
+                    <li ng-class="{'active': vm.isActive('/topics')}"><a href="#/topics">Message Board</a></li>
+                    <li ng-class="{'active': vm.isActive('/contactUs')}"><a href="#/contactUs">Contact Us</a></li>
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -77,6 +79,7 @@
     <script type="text/javascript" src="app/services/common.services.js"></script>
     <script type="text/javascript" src="app/services/placesService.js"></script>
     <script type="text/javascript" src="app/services/placesDataService.js"></script>
+    <script src="app/services/topicsRepliesService.js"></script>
 
     <script type="text/javascript" src="app/controllers/headerCtrl.js"></script>
     <script type="text/javascript" src="app/controllers/nearbyCtrl.js"></script>
@@ -84,7 +87,9 @@
     <script type="text/javascript" src="app/controllers/favoritesCtrl.js"></script>
     <script type="text/javascript" src="app/controllers/userCtrl.js"></script>
     <script type="text/javascript" src="app/controllers/aboutCtrl.js"></script>
-    
+    <script src="app/controllers/topicsCtrl.js"></script>
+    <script src="app/controllers/contactUsCtrl.js"></script>
+
     <script type="text/javascript" src="app/filters/placeNameCategoryFilter.js"></script>
     <script type="text/javascript" src="app/directives/ngUnique.js"></script>
 </body>

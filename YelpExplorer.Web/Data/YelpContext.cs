@@ -21,6 +21,10 @@ namespace YelpExplorer.Web.Data
 
         public DbSet<BookmarkedPlace> BookmarkedPlaces { get; set; }
 
+        public DbSet<Topic> Topics { get; set; }
+        public DbSet<Reply> Replies { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new BookmarkedPlaceConfiguration());

@@ -30,6 +30,12 @@ namespace YelpExplorer.Web
                defaults: new { userName = RouteParameter.Optional }
             );
 
+            config.Routes.MapHttpRoute(
+              name: "RepliesRoute",
+              routeTemplate: "api/topics/{topicid}/replies/{id}",
+              defaults: new { controller = "replies", id = RouteParameter.Optional }
+            );
+
             //config.Routes.MapHttpRoute(
             //   name: "PlacesRoute",
             //   routeTemplate: "api/places/{userName}",

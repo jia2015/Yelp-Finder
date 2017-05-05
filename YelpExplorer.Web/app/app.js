@@ -20,6 +20,22 @@
             controller: "AboutCtrl as vm",
             templateUrl: "/app/views/about.html"
         });
+        $routeProvider.when("/contactUs", {
+            controller: "contactUsCtrl",
+            templateUrl: "/app/views/contactUs.html"
+        });
+        $routeProvider.when("/topics", {
+            controller: "topicsCtrl",
+            templateUrl: "/app/views/topicsView.html"
+        });
+        $routeProvider.when("/newmessage", {
+            controller: "newTopicCtrl",
+            templateUrl: "/app/views/newTopicView.html"
+        });
+        $routeProvider.when("/message/:id", {
+            controller: "singleTopicCtrl",
+            templateUrl: "/app/views/singleTopicView.html"
+        });
         $routeProvider.otherwise({ redirectTo: "/home" });
     }]);
 

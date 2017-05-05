@@ -1,0 +1,64 @@
+﻿
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <form class="form-horizontal" data-ng-submit="send()">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="name">Name</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" id="name" name="name" data-val="true" data-val-required="*">
+                            <span class="field-validation-valid" data-valmsg-for="name" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="email">Email</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" id="email" name="email" data-val="true" data-val-required="*" data-val-email="Not Valid">
+                            <span class="field-validation-valid" data-valmsg-for="email" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="website">Website</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium" id="website" name="website" data-val="true" data-val-required="*">
+                            <span class="field-validation-valid" data-valmsg-for="website" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="comment">Message</label>
+                        <div class="controls">
+                            <textarea class="input-medium" id="comment" rows="3" name="comment" data-val="true" data-val-required="*"></textarea>
+                            <span class="field-validation-valid" data-valmsg-for="comment" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn">Send</button> <p data-ng-show="isSent">testing- Mail Sent!</p>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <p class="address">
+                <address>
+                    <strong>Twitter, Inc.</strong><br>
+                    795 Folsom Ave, Suite 600<br>
+                    San Francisco, CA 94107<br>
+                    <abbr title="Phone">P:</abbr>
+                    (123) 456-7890.<br>
+                    <br>
+                    <strong>Full Name</strong><br>
+                    <a href="mailto:#">first.last@gmail.com</a>
+                </address>
+            </p>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Goto Google maps and copy the embed code of your location. Replace the below embed code with your code. -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.15276679727!2d-74.03927180281825!3d40.75917036111678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2588f046ee661%3A0xa0b3281fcecc08c!2sManhattan%2C+New+York%2C+NY!5e0!3m2!1sen!2sus!4v1494004686264" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+    
+</div>

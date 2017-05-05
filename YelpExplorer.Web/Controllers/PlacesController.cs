@@ -12,6 +12,7 @@ namespace YelpExplorer.Web.Controllers
     public class PlacesController : ApiController
     {
         private IYelpRepository _repo;
+
         public PlacesController(IYelpRepository repo)
         {
             _repo = repo;
