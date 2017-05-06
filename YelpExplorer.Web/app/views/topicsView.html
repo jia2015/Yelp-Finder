@@ -5,7 +5,7 @@
         <div>Message Count: {{ data.topics.length }}</div>
     </div>
     <div>
-        <a href="#/newmessage">Add New Message</a>
+        <a href="/newmessage">Add New Message</a>
     </div>
     <br />
     <div class="progress progress-striped active" ng-show="isBusy">
@@ -16,7 +16,7 @@
         <div class="list-group" ng-repeat="i in data.topics">
 
                 <div class="list-group-item">
-                    <a class="list-group-item-heading" ng-href="#/message/{{ i.id }}">{{ i.title }}</a>
+                    <a class="list-group-item-heading" ng-href="/message/{{ i.id }}">{{ i.title }}</a>
                     <div class="date pull-right">
                         {{ i.created | date:"medium" }}
                     </div>

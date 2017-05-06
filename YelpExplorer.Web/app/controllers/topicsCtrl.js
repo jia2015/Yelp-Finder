@@ -13,8 +13,9 @@
             $scope.isBusy = true;
 
             topicsRepliesService.getTopics()
-              .then(function () {
+              .then(function (topics) {
                   // success
+                  console.log(topics);
               },
               function () {
                   // error
@@ -26,15 +27,15 @@
         }
 
         $scope.reply = function (id) {
-            $window.location = "#/message/" + id;
+            $window.location = "/message/" + id;
         };
 
     }
 
 
     angular.module("YelpApp")
-            .controller("newTopicCtrl", ["$scope", "$http", "$window", "topicsRepliesService",
-        function ($scope, $http, $window, topicsRepliesService) {
+            .controller("newTopicCtrl", ["$scope", "$http", "$window","toaster", "topicsRepliesService",
+        function ($scope, $http, $window, toaster, topicsRepliesService) {
         
         $scope.newTopic = {};
 
@@ -43,7 +44,7 @@
             topicsRepliesService.addTopic($scope.newTopic)
               .then(function () {
                   // success
-                  $window.location = "#/topics";
+                  $window.location = "/topics";
               },
               function () {
                   // error
@@ -68,7 +69,7 @@
           },
           function () {
               // error
-              $window.location = "#/";
+              $window.location = "/";
           });
 
         $scope.addReply = function () {
@@ -79,7 +80,7 @@
               },
               function () {
                   // error
-                  alert("Could not save the new reply");
+                  toaster.pop('error', "Failed:", "Could not save the new reply");
               });
         };
     }]);

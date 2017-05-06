@@ -11,7 +11,7 @@ namespace YelpExplorer.Web.Data
     public class YelpContext : DbContext
     {
         public YelpContext()
-            : base("DBConnection")
+            : base("yelpDB")
         {
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;

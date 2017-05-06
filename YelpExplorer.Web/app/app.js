@@ -1,12 +1,13 @@
 ﻿(function () {
     "use strict";    
-    var app = angular.module("YelpApp", ["ngRoute", 
+    var app = angular.module("YelpApp", ["ngRoute",
                                         "common.services",
                                         "ui.bootstrap", 
                                         "toaster",
                                         "angular-loading-bar"]);
 
-    app.config(["$routeProvider", function ($routeProvider) {
+    app.config(["$routeProvider", "$locationProvider",
+                function ($routeProvider, $locationProvider) {
 
         $routeProvider.when("/home", {
             controller: "NearbyCtrl as vm",
@@ -37,6 +38,8 @@
             templateUrl: "/app/views/singleTopicView.html"
         });
         $routeProvider.otherwise({ redirectTo: "/home" });
+
+        $locationProvider.html5Mode(true);
     }]);
 
 })();

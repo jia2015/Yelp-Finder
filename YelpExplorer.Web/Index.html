@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>Yelp Explorer</title>
+    <base href="/" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="Content/site.css" />
     <link rel="stylesheet" type="text/css" href="Content/toaster.css" />
@@ -20,14 +21,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#/">Yelp Explorer</a>
+                <a class="navbar-brand" href="/">Yelp Explorer</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{'active': vm.isActive('/home')}"><a href="#/home">Nearby</a></li>
-                    <li ng-class="{'active': vm.isActive('/favorites')}"><a href="#/favorites">My Favorites</a></li>
-                    <li ng-class="{'active': vm.isActive('/topics')}"><a href="#/topics">Message Board</a></li>
-                    <li ng-class="{'active': vm.isActive('/contactUs')}"><a href="#/contactUs">Contact Us</a></li>
+                    <li ng-class="{'active': vm.isActive('/home')}"><a href="home">Nearby</a></li>
+                    <li ng-class="{'active': vm.isActive('/favorites')}"><a href="favorites">My Favorites</a></li>
+                    <li ng-class="{'active': vm.isActive('/topics')}"><a href="topics">Message Board</a></li>
+                    <li ng-class="{'active': vm.isActive('/contactUs')}"><a href="contactUs">Contact Us</a></li>
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
@@ -42,7 +43,7 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#/about">Me</a></li>
+                    <li><a href="about">Me</a></li>
                 </ul>
             </div>
         </div>
