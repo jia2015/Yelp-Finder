@@ -18,11 +18,13 @@ namespace YelpExplorer.Web.Controllers
             _repo = repo;
         }
 
+        [HttpGet]
         public IEnumerable<Reply> Get(int topicId)
         {
             return _repo.GetRepliesByTopic(topicId);
         }
 
+        [HttpPost]
         public HttpResponseMessage Post(int topicId, [FromBody]Reply newReply)
         {
             if (newReply.Created == default(DateTime))

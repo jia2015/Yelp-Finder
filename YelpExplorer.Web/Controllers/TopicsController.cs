@@ -18,6 +18,7 @@ namespace YelpExplorer.Web.Controllers
             _repo = repo;
         }
 
+        [HttpGet]
         public IEnumerable<Topic> Get(bool includeReplies = false)
         {
             IQueryable<Topic> results;

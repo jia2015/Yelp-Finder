@@ -2,9 +2,9 @@
     "use strict";
     
     angular.module("YelpApp")
-            .controller("topicsCtrl", ["$scope", "$window", "$http", "topicsRepliesService", topicsCtrl]);
+            .controller("topicsCtrl", ["$scope", "$window", "$http", "toaster", "topicsRepliesService", topicsCtrl]);
     
-    function topicsCtrl($scope,$window, $http, topicsRepliesService) {
+    function topicsCtrl($scope, $window, $http, toaster, topicsRepliesService) {
 
         $scope.data = topicsRepliesService;
         $scope.isBusy = false;
@@ -19,7 +19,7 @@
               },
               function () {
                   // error
-                  alert("could not load topics");
+                  toaster.pop('error', "Could not load topics");
               })
               .then(function () {
                   $scope.isBusy = false;
@@ -34,7 +34,7 @@
 
 
     angular.module("YelpApp")
-            .controller("newTopicCtrl", ["$scope", "$http", "$window","toaster", "topicsRepliesService",
+            .controller("newTopicCtrl", ["$scope", "$http", "$window", "toaster", "topicsRepliesService",
         function ($scope, $http, $window, toaster, topicsRepliesService) {
         
         $scope.newTopic = {};
@@ -56,8 +56,8 @@
 
     //-----------------------------single topic
     angular.module("YelpApp")
-            .controller("singleTopicCtrl", ["$scope", "topicsRepliesService", "$window", "$routeParams",
-        function ($scope, topicsRepliesService, $window, $routeParams) {
+            .controller("singleTopicCtrl", ["$scope", "topicsRepliesService", "toaster", "$window", "$routeParams",
+        function ($scope, topicsRepliesService, toaster, $window, $routeParams) {
         
         $scope.topic = null;
         $scope.newReply = {};
